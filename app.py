@@ -10,13 +10,11 @@ jwt = init_jwt(app)
 
 app.register_blueprint(auth_bp)
 
-# Create Limiter without app
 limiter = Limiter(
     key_func=get_remote_address,
     default_limits=["100 per hour"]
 )
 
-# Attach Limiter to app
 limiter.init_app(app)
 
 @app.route("/films")
