@@ -1,7 +1,7 @@
 import time
 
 class Cache:
-    def __init__(self, ttl=300):
+    def __init__(self, ttl=300): #5 minutes
         self.ttl = ttl
         self.store = {}
 
