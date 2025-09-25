@@ -1,13 +1,23 @@
-from flask import request, jsonify
+from flask import Blueprint, request, jsonify
+from flask_jwt_extended import JWTManager, create_access_token, jwt_required
 
-API_KEY = "ilovesenwes"
+auth_bp = Blueprint("auth", __name__)
 
-def require_api_key(func):
-    def wrapper(*args, **kwargs):
-        key = request.headers.get("Authorization")
-        if key == f"Bearer {API_KEY}":
-            return func(*args, **kwargs)
-        else:
-            return jsonify({"error": "Unauthorized user"}), 401
-    wrapper.__name__ = func.__name__
-    return wrapper
+def init_jwt(app):
+    app.config["JWT_SECRET_KEY"] = "ilovesenwes"
+    jwt = JWTManager(app)
+    return jwt
+
+# Login endpoint
+@auth_bp.route("/login", methods=["POST"])
+def login():
+    username = request.json.get("username", None)
+    password = request.json.get("password", None)
+
+    # Simple hardcoded check (replace with DB or service in real life)
+    if username != "katelyn" or password != "swapi":
+        return jsonify({"error": "Invalid credentials"}), 401
+
+    # Generate JWT token
+    access_token = create_access_token(identity=username)
+    return jsonify(access_token=access_token), 200
