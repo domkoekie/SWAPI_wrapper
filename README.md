@@ -53,12 +53,6 @@ pip install -r requirements.txt
 ```bash
 python app.py
 ```
-   
-5. OR **Run with Gunicorn**
-
-```bash
-gunicorn app:app
-```
 
 ---
 
