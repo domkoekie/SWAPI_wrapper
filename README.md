@@ -30,6 +30,8 @@ Easily retrieve data about films, characters, and starships from the Star Wars u
 pip install --upgrade pip
 pip install -r requirements.txt
 ```
+
+- requirements.txt (Flask, flask-jwt-extended, requests, flask-limiter, gunicorn)
 ---
 
 ## Quick Start
