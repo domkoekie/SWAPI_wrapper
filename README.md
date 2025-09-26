@@ -32,6 +32,36 @@ pip install -r requirements.txt
 ```
 ---
 
+## Quick Start
+
+1. **Clone the repository**
+
+```bash
+git clone https://github.com/domkoekie/SWAPI_wrapper.git
+cd SWAPI_wrapper
+```
+
+2. **Install dependencies**
+
+```bash
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+4. **Run Locally**
+
+```bash
+python app.py
+```
+   
+5. OR **Run with Gunicorn**
+
+```bash
+gunicorn app:app
+```
+
+---
+
 ## Architecture & Design
 
 - **Framework**: 
@@ -68,36 +98,6 @@ pip install -r requirements.txt
   - Caching and rate limiting optimize performance and meet bonus requirements.
   - Docker and Heroku deployment ensure portability and ease of testing.
  
----
-
-## Quick Start
-
-1. **Clone the repository**
-
-```bash
-git clone https://github.com/domkoekie/SWAPI_wrapper.git
-cd SWAPI_wrapper
-```
-
-2. **Install dependencies**
-
-```bash
-pip install --upgrade pip
-pip install -r requirements.txt
-```
-
-4. **Run Locally**
-
-```bash
-python app.py
-```
-   
-5. OR **Run with Gunicorn**
-
-```bash
-gunicorn app:app
-```
-
 ---
   
 ## Docker
