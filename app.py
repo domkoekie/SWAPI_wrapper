@@ -4,7 +4,7 @@ from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 from swapi_service import get_films, get_film_characters, get_film_starships
 from authentication import auth_bp, init_jwt
-
+import os
 app = Flask(__name__)
 jwt = init_jwt(app)
 app.register_blueprint(auth_bp)
@@ -49,4 +49,5 @@ def starships(film_id):
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    port = int(os.environ.get("PORT", 5000))  #Heroku port or local
+    app.run(host="0.0.0.0", port=port, debug=True)
